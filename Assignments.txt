@@ -1,3 +1,16 @@
 Josh:
-    Spell gesture system - determining what spell gets cast based on input
+    - Spell gesture system - determining what spell gets cast based on input
     requires interfacing with accelerometer and buttons
+    - Wand -> IR Packet Transmission
+
+Max:
+    - ESP -> Prop connection
+    - Building Hardware & Wands (give to Josh & Derek)
+
+Derek:
+    - Wand -> ESP Transmission
+    - Spell Interpreter
+    - Symbol Queueing Algorithm
+        - building the packets to send
+
+    - POTENTIAL: Game State Controls? (once prop triggered, part of story is permanently revealed? unique events)
