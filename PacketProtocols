@@ -14,6 +14,7 @@
     target_id;
     event_id;
     timestamp;
+    signal_strength;
     crc;
 }
 # Room Event: ESP32 → Laptop
