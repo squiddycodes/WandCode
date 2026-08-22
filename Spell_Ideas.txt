@@ -8,6 +8,7 @@ Carrot =
 Vee = 
 Rhombus =
 Spiral =
+Johnson = goon
 
 # Spell Table - Example
 Spell ID | Sequence     | Name
