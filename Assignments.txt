@@ -1,0 +1,3 @@
+Josh:
+    Spell gesture system - determining what spell gets cast based on input
+    requires interfacing with accelerometer and buttons
