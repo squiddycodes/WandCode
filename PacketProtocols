@@ -1,0 +1,45 @@
+# Wand Event: Wand → ESP32
+{
+    protocol_version;
+    wand_id;
+    packet_id;
+    symbol_count;
+    symbols[];
+    timestamp;
+    crc;
+}
+# Target Event: IR Target → ESP32
+{
+    protocol_version;
+    target_id;
+    event_id;
+    timestamp;
+    crc;
+}
+# Room Event: ESP32 → Laptop
+{
+    protocol_version;
+    room_id;
+    receiver_id;
+    event_type;
+    source_id;
+    event_id;
+    timestamp;
+    payload;
+    crc;
+}
+# Effect Event: Laptop → ESP32
+{
+    command_id;
+    target_id;
+    effect_id;
+    parameters;
+}
+
+
+
+# Packet Verification
+Should check:
+    Structure
+    CRC
+    Duplicate
