@@ -1,12 +1,9 @@
-import socket
+from settings import UDP_PORT, UDP_IP, getSocket
 from spellbook import spells
 
-#ESP CONNECTION
-UDP_IP = "0.0.0.0"  # Listens on all available network interfaces
-UDP_PORT = 5005 #change to be esp32's port
 
 # Create and bind the UDP socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock = getSocket()
 sock.bind((UDP_IP, UDP_PORT))
 #END ESP CONNECTION
 print(f"ESP Listener active on port {UDP_PORT}...")
@@ -25,13 +22,12 @@ def getIP(ir_hex):
 
 # Send package to IP
 def sendPackage(package, IP):
-    print(f'Sending {package} to {IP}...')
-    #TODO add send logic
+    sock.sendto(package.encode("utf-8"), (IP, UDP_PORT)) #send to IP over UDP_PORT
+    print(f"Sent '{package}' to {IP}:{UDP_PORT}")
 
 try:
     while True:
-        # Buffer size of 1024 bytes
-        data, addr = sock.recvfrom(1024)
+        data, addr = sock.recvfrom(1024) #1024 byte buffer max
 
         ir_hex = data.decode("utf-8") #DECODE AS HEX
         

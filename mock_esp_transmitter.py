@@ -1,17 +1,15 @@
-import socket
-from settings import MY_IP
+from settings import RECEIVER_IP, UDP_PORT, getSocket
 from spellbook import spells
 import random
 
-LAPTOP_IP = MY_IP
-UDP_PORT = 5005 #change to be same as esp32
+SPELL = random.choice(list(spells)) #get random spell
 
-SPELL = random.choice(list(spells))
-
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock = getSocket()
 
 try:
-    sock.sendto(SPELL.encode("utf-8"), (LAPTOP_IP, UDP_PORT))
-    print(f"Sent '{SPELL}' to {LAPTOP_IP}:{UDP_PORT}")
+    sock.sendto(SPELL.encode("utf-8"), (RECEIVER_IP, UDP_PORT)) #send spell
+    print(f"Sent '{SPELL}' to {RECEIVER_IP}:{UDP_PORT}")
+except Exception:
+    print("Transmission Failed: \nMake sure to set your IP in settings.py (don't commit to git)")
 finally:
     sock.close()
