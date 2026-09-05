@@ -1,14 +1,20 @@
 import socket
 
-# Configure the listener to match the ESP32 settings
+#ESP CONNECTION
 UDP_IP = "0.0.0.0"  # Listens on all available network interfaces
 UDP_PORT = 5005 #change to be esp32's port
 
 # Create and bind the UDP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((UDP_IP, UDP_PORT))
-
+#END ESP CONNECTION
 print(f"ESP Listener active on port {UDP_PORT}...")
+
+spellbook = { #HEX: (spellname, outputIP)
+    "FF30CF": ("Fireball", "192.100.1.200"),
+    "FF30CC": ("Magic Missile", "192.100.1.201"),
+    "FF30CD": ("Poopie diapie", "192.100.1.202"),
+}
 
 try:
     while True:
