@@ -8,8 +8,8 @@ Max:
     - Building Hardware & Wands (give to Josh & Derek)
 
 Derek:
-    - Wand -> ESP Transmission
-    - Spell Interpreter
+    - Wand -> ESP Transmission (receive server hosted on laptop)
+    - Spell Interpreter - take in 8-bit spellcode from ESP
     - Symbol Queueing Algorithm
         - building the packets to send
 
